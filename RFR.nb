@@ -1,0 +1,537 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19189,        529]
+NotebookOptionsPosition[     17966,        498]
+NotebookOutlinePosition[     18309,        513]
+CellTagsIndexPosition[     18266,        510]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["The rate of Field Rotation", "Title",
+ CellChangeTimes->{{3.8011544723657837`*^9, 3.801154486371463*^9}, {
+   3.8011553646426573`*^9, 3.80115537879342*^9}, 
+   3.801155429926964*^9},ExpressionUUID->"49e8f609-92b4-41cc-aef4-\
+0d020711f926"],
+
+Cell[CellGroupData[{
+
+Cell["Choose your Latitude first ..", "Chapter",
+ CellChangeTimes->{{3.801155398403388*^9, 
+  3.8011554265819025`*^9}},ExpressionUUID->"9b16cec5-ac4b-484e-9c25-\
+acc549f54528"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"g", "[", 
+     RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cos", "[", "Phi", "]"}], 
+      RowBox[{"Cos", "[", "H", "]"}], 
+      RowBox[{"Cos", "[", "Delta", "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"Sin", "[", "Phi", "]"}], 
+      RowBox[{"Sin", "[", "Delta", "]"}]}]}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"f", "[", 
+     RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Sin", "[", "H", "]"}], 
+     RowBox[{
+      RowBox[{"Cos", "[", "Delta", "]"}], "/", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"ArcSin", "[", 
+        RowBox[{"g", "[", 
+         RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "]"}], "]"}]}]}]}], 
+   ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"h", "[", 
+    RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sin", "[", "Phi", "]"}], 
+       RowBox[{"Cos", "[", "H", "]"}], 
+       RowBox[{"Cos", "[", "Delta", "]"}]}], "-", 
+      RowBox[{
+       RowBox[{"Cos", "[", "Phi", "]"}], 
+       RowBox[{"Sin", "[", "Delta", "]"}]}]}], ")"}], "/", 
+    RowBox[{"Cos", "[", 
+     RowBox[{"ArcSin", "[", 
+      RowBox[{"g", "[", 
+       RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"beta", "[", 
+    RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", "Phi", "]"}], 
+      RowBox[{"Sin", "[", "H", "]"}], 
+      RowBox[{"f", "[", 
+       RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"Cos", "[", "H", "]"}], 
+      RowBox[{"h", "[", 
+       RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}]}]}], ")"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"da", "[", 
+    RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"Cos", "[", "Phi", "]"}]}], "*", 
+    RowBox[{"Sin", "[", "H", "]"}], "*", 
+    RowBox[{
+     RowBox[{"Cos", "[", "Delta", "]"}], "/", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"ArcSin", "[", 
+       RowBox[{"g", "[", 
+        RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "]"}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DA", "[", 
+    RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Cos", "[", "H", "]"}], 
+       RowBox[{"Cos", "[", "Delta", "]"}]}], "+", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "*", 
+       RowBox[{"g", "[", 
+        RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "*", 
+       RowBox[{"da", "[", 
+        RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}]}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"h", "[", 
+       RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], 
+      RowBox[{"Cos", "[", 
+       RowBox[{"ArcSin", "[", 
+        RowBox[{"g", "[", 
+         RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "]"}], "]"}]}], 
+     ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RFR", "[", 
+    RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"-", "0.0000727220521664304"}], " ", "*", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "H", "]"}], 
+        RowBox[{"f", "[", 
+         RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "*", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"DA", "[", 
+           RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "-", 
+          RowBox[{"Sin", "[", "Phi", "]"}]}], ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"Sin", "[", "H", "]"}], 
+        RowBox[{"h", "[", 
+         RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{
+           RowBox[{"Sin", "[", "Phi", "]"}], "*", 
+           RowBox[{"DA", "[", 
+            RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}]}]}], ")"}]}]}], 
+      ")"}], "/", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"ArcCos", "[", 
+       RowBox[{"beta", "[", 
+        RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "]"}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"RFR", "[", 
+         RowBox[{
+          RowBox[{"Latitude", "*", 
+           RowBox[{"Pi", "/", "180"}]}], ",", 
+          RowBox[{"15", "*", "x", "*", 
+           RowBox[{"Pi", "/", "180"}]}], ",", 
+          RowBox[{"Declination", "*", 
+           RowBox[{"Pi", "/", "180"}]}]}], "]"}], "]"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"3600", "*", 
+         RowBox[{"180", "/", "Pi"}]}], ")"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "6"}], ",", "6"}], "}"}], ",", 
+     RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+          "HoldForm", "[", "\"\<Rate of Field Rotation in Arcseconds/s\>\"", 
+           "]"}], ",", "None"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"HoldForm", "[", "\"\<Hour Angle\>\"", "]"}], ",", "None"}],
+          "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Latitude, 32\[Degree] North\>\""}], 
+     ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"14", ",", 
+        RowBox[{"GrayLevel", "[", "0", "]"}]}], "}"}]}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "None"}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"14", ",", 
+        RowBox[{"GrayLevel", "[", "0", "]"}]}], "}"}]}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", "\"\<|RFR| according to Lairgi's model\>\"", "}"}]}]}], 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"Declination", ",", 
+     RowBox[{"-", "89"}], ",", "89"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"Latitude", ",", 
+     RowBox[{"-", "90"}], ",", "90"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{
+  3.801154506521552*^9, {3.8011545413194146`*^9, 3.801154559160776*^9}, {
+   3.801154591321765*^9, 3.8011546637681465`*^9}, {3.8011548470595236`*^9, 
+   3.801154854495268*^9}, {3.801154948395835*^9, 3.8011549588157644`*^9}, 
+   3.8011550572832155`*^9},
+ CellLabel->"In[29]:=",ExpressionUUID->"a3369a4e-687d-4462-a251-7e026abebba7"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`Declination$$ = -6.199999999999989, 
+    Latitude$$ = 0, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$, 
+    Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`Declination$$], -89, 89}, {
+      Hold[Latitude$$], -90, 90}}, Typeset`size$$ = {616., {138., 142.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`Declination$11261$$ = 0, Latitude$11262$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`Declination$$ = -89, Latitude$$ = -90}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`Declination$$, $CellContext`Declination$11261$$, 0], 
+        Hold[Latitude$$, Latitude$11262$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{Abs[
+           $CellContext`RFR[
+           Latitude$$ (Pi/180), 
+            15 $CellContext`x (Pi/180), $CellContext`Declination$$ (Pi/
+             180)]] (3600 (180/Pi))}, {$CellContext`x, -6, 6}, PlotTheme -> 
+        "Scientific", FrameLabel -> {{
+           HoldForm["Rate of Field Rotation in Arcseconds/s"], None}, {
+           HoldForm["Hour Angle"], None}}, PlotLabel -> 
+        "Latitude, 32\[Degree] North", LabelStyle -> {14, 
+          GrayLevel[0]}, PlotLabel -> None, LabelStyle -> {14, 
+          GrayLevel[0]}, 
+        PlotLegends -> {"|RFR| according to Lairgi's model"}], 
+      "Specifications" :> {{$CellContext`Declination$$, -89, 89}, {
+        Latitude$$, -90, 90}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{667., {224., 230.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8011546758474708`*^9, 3.8011546922874646`*^9}, {
+   3.801154861919718*^9, 3.8011548716550717`*^9}, {3.801154961774684*^9, 
+   3.801154977789115*^9}, 3.8011550602099543`*^9, {3.801155110932327*^9, 
+   3.8011551122403545`*^9}},
+ CellLabel->"Out[36]=",ExpressionUUID->"64fab9cb-9187-4b4b-9a18-39a760ee77cd"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8011554740389147`*^9, 
+  3.8011554794635816`*^9}},ExpressionUUID->"34dc5fa2-03a3-494c-a5d4-\
+d050f3734749"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Comparison between LAIRGI\[CloseCurlyQuote]s and KEICHER\[CloseCurlyQuote]s \
+Model
+\
+\>", "Title",
+ CellChangeTimes->{{3.801155492141192*^9, 
+  3.801155590174881*^9}},ExpressionUUID->"5ad32a86-3d9b-4f1a-b0a6-\
+fe5733ae7c21"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"g1", "[", 
+     RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cos", "[", "Phi", "]"}], 
+      RowBox[{"Cos", "[", "H", "]"}], 
+      RowBox[{"Cos", "[", "Delta", "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"Sin", "[", "Phi", "]"}], 
+      RowBox[{"Sin", "[", "Delta", "]"}]}]}]}], ";"}], " "}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f1", "[", 
+    RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Sin", "[", "H", "]"}], 
+    RowBox[{
+     RowBox[{"Cos", "[", "Delta", "]"}], "/", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"ArcSin", "[", 
+       RowBox[{"g1", "[", 
+        RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "]"}], "]"}]}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"h1", "[", 
+    RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sin", "[", "Phi", "]"}], 
+       RowBox[{"Cos", "[", "H", "]"}], 
+       RowBox[{"Cos", "[", "Delta", "]"}]}], "-", 
+      RowBox[{
+       RowBox[{"Cos", "[", "Phi", "]"}], 
+       RowBox[{"Sin", "[", "Delta", "]"}]}]}], ")"}], "/", 
+    RowBox[{"Cos", "[", 
+     RowBox[{"ArcSin", "[", 
+      RowBox[{"g1", "[", 
+       RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "]"}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RFR1", "[", 
+    RowBox[{"Phi_", ",", "H_", ",", "Delta_"}], "]"}], ":=", 
+   RowBox[{"0.0000727220521664304", " ", "*", " ", 
+    RowBox[{"Cos", "[", "Phi", "]"}], "*", 
+    RowBox[{
+     RowBox[{"h1", "[", 
+      RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "/", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"ArcSin", "[", 
+       RowBox[{"g1", "[", 
+        RowBox[{"Phi", ",", "H", ",", "Delta"}], "]"}], "]"}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{"RFR", "[", 
+           RowBox[{"0.557", ",", 
+            RowBox[{"15", "*", "x", "*", 
+             RowBox[{"Pi", "/", "180"}]}], ",", 
+            RowBox[{"y", "*", 
+             RowBox[{"Pi", "/", "180"}]}]}], "]"}], "]"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"3600", "*", 
+           RowBox[{"180", "/", "Pi"}]}], ")"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"RFR1", "[", 
+            RowBox[{"0.557", ",", 
+             RowBox[{"15", "*", "x", "*", 
+              RowBox[{"Pi", "/", "180"}]}], ",", 
+             RowBox[{"y", "*", 
+              RowBox[{"Pi", "/", "180"}]}]}], "]"}], "]"}]}], "*", 
+         RowBox[{"(", 
+          RowBox[{"3600", "*", 
+           RowBox[{"180", "/", "Pi"}]}], ")"}]}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "6"}], ",", "6"}], "}"}], ",", 
+     RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+          "HoldForm", "[", "\"\<Rate of Field Rotation in Arcseconds/s\>\"", 
+           "]"}], ",", "None"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"HoldForm", "[", "\"\<Hour Angle\>\"", "]"}], ",", "None"}],
+          "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Latitude, 32\[Degree] North\>\""}], 
+     ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"14", ",", 
+        RowBox[{"GrayLevel", "[", "0", "]"}]}], "}"}]}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "None"}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"14", ",", 
+        RowBox[{"GrayLevel", "[", "0", "]"}]}], "}"}]}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<|RFR| according to Lairgi's model\>\"", ",", 
+        "\"\<-|RFR| according to Keicher's model\>\""}], "}"}]}]}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "90"}], ",", "90"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8011556025167694`*^9, 3.801155618705358*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"028c5933-7c8a-4183-a27b-e3cb56d93043"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`y$$ = 7., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`y$$], -90, 90}}, Typeset`size$$ = {
+    638., {136., 141.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`y$16373$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`y$$ = -90}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`y$$, $CellContext`y$16373$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{{Abs[
+            $CellContext`RFR[
+            0.557, 15 $CellContext`x (Pi/180), $CellContext`y$$ (Pi/180)]] (
+           3600 (180/Pi))}, {(-Abs[
+             $CellContext`RFR1[
+             0.557, 15 $CellContext`x (Pi/180), $CellContext`y$$ (Pi/180)]]) (
+           3600 (180/Pi))}}, {$CellContext`x, -6, 6}, PlotTheme -> 
+        "Scientific", FrameLabel -> {{
+           HoldForm["Rate of Field Rotation in Arcseconds/s"], None}, {
+           HoldForm["Hour Angle"], None}}, PlotLabel -> 
+        "Latitude, 32\[Degree] North", LabelStyle -> {14, 
+          GrayLevel[0]}, PlotLabel -> None, LabelStyle -> {14, 
+          GrayLevel[0]}, 
+        PlotLegends -> {
+         "|RFR| according to Lairgi's model", 
+          "-|RFR| according to Keicher's model"}], 
+      "Specifications" :> {{$CellContext`y$$, -90, 90}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{689., {183., 189.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.8011556226848965`*^9},
+ CellLabel->"Out[41]=",ExpressionUUID->"0789d7c7-7b0a-4552-a0ca-7593cef0906c"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.801155483567098*^9, 
+  3.8011554846925073`*^9}},ExpressionUUID->"8bb6ef0e-50f6-4ab3-9ea0-\
+a53e7df846e8"]
+}, Open  ]]
+},
+WindowSize->{1536, 781},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 245, 4, 96, "Title",ExpressionUUID->"49e8f609-92b4-41cc-aef4-0d020711f926"],
+Cell[CellGroupData[{
+Cell[850, 30, 176, 3, 67, "Chapter",ExpressionUUID->"9b16cec5-ac4b-484e-9c25-acc549f54528"],
+Cell[CellGroupData[{
+Cell[1051, 37, 6777, 199, 238, "Input",ExpressionUUID->"a3369a4e-687d-4462-a251-7e026abebba7"],
+Cell[7831, 238, 2675, 50, 506, "Output",ExpressionUUID->"64fab9cb-9187-4b4b-9a18-39a760ee77cd"]
+}, Open  ]],
+Cell[10521, 291, 156, 3, 28, "Input",ExpressionUUID->"34dc5fa2-03a3-494c-a5d4-d050f3734749"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10726, 300, 235, 7, 156, "Title",ExpressionUUID->"5ad32a86-3d9b-4f1a-b0a6-fe5733ae7c21"],
+Cell[CellGroupData[{
+Cell[10986, 311, 4403, 128, 143, "Input",ExpressionUUID->"028c5933-7c8a-4183-a27b-e3cb56d93043"],
+Cell[15392, 441, 2389, 48, 391, "Output",ExpressionUUID->"0789d7c7-7b0a-4552-a0ca-7593cef0906c"]
+}, Open  ]],
+Cell[17796, 492, 154, 3, 28, "Input",ExpressionUUID->"8bb6ef0e-50f6-4ab3-9ea0-a53e7df846e8"]
+}, Open  ]]
+}
+]
+*)
+
