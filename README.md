@@ -3,4 +3,4 @@ This work not only provides an additional mathematical approach of field rotatio
 
 In addition, you could download a complete Excel sheet that assists amateur astronomers in calculating the maximum exposure time as function of the observer's latitude, the sidereal rotation of the earth, the hour angle and declination of the astronomical object, the aperture and field of view of the imaging system. 
 
-![Alt Text](https://github.com/lairgiyassir/fieldrotation/blob/master/RFRi.gif)
+![Alt Text](https://github.com/lairgiyassir/fieldrotation/blob/master/RFRfinale.gif)
