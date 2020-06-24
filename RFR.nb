@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     19189,        529]
-NotebookOptionsPosition[     17966,        498]
-NotebookOutlinePosition[     18309,        513]
-CellTagsIndexPosition[     18266,        510]
+NotebookDataLength[     19501,        536]
+NotebookOptionsPosition[     18278,        505]
+NotebookOutlinePosition[     18621,        520]
+CellTagsIndexPosition[     18578,        517]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -259,10 +259,10 @@ Cell[BoxData[
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
          Typeset`skipInitDone$$}, "Body" :> Plot[{Abs[
            $CellContext`RFR[
-           Latitude$$ (Pi/180), 
-            15 $CellContext`x (Pi/180), $CellContext`Declination$$ (Pi/
-             180)]] (3600 (180/Pi))}, {$CellContext`x, -6, 6}, PlotTheme -> 
-        "Scientific", FrameLabel -> {{
+           Latitude$$ (Pi/180), (15 $CellContext`x) (Pi/
+             180), $CellContext`Declination$$ (Pi/180)]] (
+          3600 (180/Pi))}, {$CellContext`x, -6, 6}, PlotTheme -> "Scientific",
+         FrameLabel -> {{
            HoldForm["Rate of Field Rotation in Arcseconds/s"], None}, {
            HoldForm["Hour Angle"], None}}, PlotLabel -> 
         "Latitude, 32\[Degree] North", LabelStyle -> {14, 
@@ -271,7 +271,7 @@ Cell[BoxData[
         PlotLegends -> {"|RFR| according to Lairgi's model"}], 
       "Specifications" :> {{$CellContext`Declination$$, -89, 89}, {
         Latitude$$, -90, 90}}, "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{667., {224., 230.}},
+     ImageSizeCache->{667., {198., 204.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -382,21 +382,20 @@ Cell[BoxData[{
            RowBox[{"0.557", ",", 
             RowBox[{"15", "*", "x", "*", 
              RowBox[{"Pi", "/", "180"}]}], ",", 
-            RowBox[{"y", "*", 
+            RowBox[{"Latitude", "*", 
              RowBox[{"Pi", "/", "180"}]}]}], "]"}], "]"}], "*", 
          RowBox[{"(", 
           RowBox[{"3600", "*", 
            RowBox[{"180", "/", "Pi"}]}], ")"}]}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{
-         RowBox[{"-", 
-          RowBox[{"Abs", "[", 
-           RowBox[{"RFR1", "[", 
-            RowBox[{"0.557", ",", 
-             RowBox[{"15", "*", "x", "*", 
-              RowBox[{"Pi", "/", "180"}]}], ",", 
-             RowBox[{"y", "*", 
-              RowBox[{"Pi", "/", "180"}]}]}], "]"}], "]"}]}], "*", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"RFR1", "[", 
+           RowBox[{"0.557", ",", 
+            RowBox[{"15", "*", "x", "*", 
+             RowBox[{"Pi", "/", "180"}]}], ",", 
+            RowBox[{"Latitude", "*", 
+             RowBox[{"Pi", "/", "180"}]}]}], "]"}], "]"}], "*", 
          RowBox[{"(", 
           RowBox[{"3600", "*", 
            RowBox[{"180", "/", "Pi"}]}], ")"}]}], "}"}]}], "}"}], ",", 
@@ -431,38 +430,45 @@ Cell[BoxData[{
       RowBox[{"{", 
        RowBox[{
        "\"\<|RFR| according to Lairgi's model\>\"", ",", 
-        "\"\<-|RFR| according to Keicher's model\>\""}], "}"}]}]}], "]"}], 
-   ",", 
+        "\"\<|RFR| according to Keicher's model\>\""}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", 
+        RowBox[{"{", 
+         RowBox[{"Dashed", ",", 
+          RowBox[{"AbsoluteThickness", "[", "4", "]"}]}], "}"}]}], "}"}]}]}], 
+    "]"}], ",", 
    RowBox[{"{", 
-    RowBox[{"y", ",", 
+    RowBox[{"Latitude", ",", 
      RowBox[{"-", "90"}], ",", "90"}], "}"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.8011556025167694`*^9, 3.801155618705358*^9}},
- CellLabel->"In[37]:=",ExpressionUUID->"028c5933-7c8a-4183-a27b-e3cb56d93043"],
+ CellChangeTimes->{{3.8011556025167694`*^9, 3.801155618705358*^9}, {
+  3.8019864956294913`*^9, 3.8019864982468767`*^9}},
+ CellLabel->"In[40]:=",ExpressionUUID->"028c5933-7c8a-4183-a27b-e3cb56d93043"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`y$$ = 7., Typeset`show$$ = True, 
+   DynamicModuleBox[{Latitude$$ = 42.400000000000006`, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`y$$], -90, 90}}, Typeset`size$$ = {
-    638., {136., 141.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`y$16373$$ = 0}, 
+      Hold[Latitude$$], -90, 90}}, Typeset`size$$ = {650., {138., 142.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Latitude$88052$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`y$$ = -90}, 
+     1, StandardForm, "Variables" :> {Latitude$$ = -90}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`y$$, $CellContext`y$16373$$, 0]}, 
+        Hold[Latitude$$, Latitude$88052$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
          Typeset`skipInitDone$$}, "Body" :> Plot[{{Abs[
             $CellContext`RFR[
-            0.557, 15 $CellContext`x (Pi/180), $CellContext`y$$ (Pi/180)]] (
-           3600 (180/Pi))}, {(-Abs[
-             $CellContext`RFR1[
-             0.557, 15 $CellContext`x (Pi/180), $CellContext`y$$ (Pi/180)]]) (
+            0.557, 15 $CellContext`x (Pi/180), Latitude$$ (Pi/180)]] (
+           3600 (180/Pi))}, {Abs[
+            $CellContext`RFR1[
+            0.557, 15 $CellContext`x (Pi/180), Latitude$$ (Pi/180)]] (
            3600 (180/Pi))}}, {$CellContext`x, -6, 6}, PlotTheme -> 
         "Scientific", FrameLabel -> {{
            HoldForm["Rate of Field Rotation in Arcseconds/s"], None}, {
@@ -472,10 +478,11 @@ Cell[BoxData[
           GrayLevel[0]}, 
         PlotLegends -> {
          "|RFR| according to Lairgi's model", 
-          "-|RFR| according to Keicher's model"}], 
-      "Specifications" :> {{$CellContext`y$$, -90, 90}}, "Options" :> {}, 
+          "|RFR| according to Keicher's model"}, PlotStyle -> {Thick, {Dashed, 
+           AbsoluteThickness[4]}}], 
+      "Specifications" :> {{Latitude$$, -90, 90}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{689., {183., 189.}},
+     ImageSizeCache->{701., {184., 190.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -486,8 +493,8 @@ Cell[BoxData[
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.8011556226848965`*^9},
- CellLabel->"Out[41]=",ExpressionUUID->"0789d7c7-7b0a-4552-a0ca-7593cef0906c"]
+ CellChangeTimes->{3.8011556226848965`*^9, 3.801986501140794*^9},
+ CellLabel->"Out[44]=",ExpressionUUID->"de7b6153-9985-47ac-b1df-d075c7887315"]
 }, Open  ]],
 
 Cell[BoxData[""], "Input",
@@ -518,7 +525,7 @@ Cell[CellGroupData[{
 Cell[850, 30, 176, 3, 67, "Chapter",ExpressionUUID->"9b16cec5-ac4b-484e-9c25-acc549f54528"],
 Cell[CellGroupData[{
 Cell[1051, 37, 6777, 199, 238, "Input",ExpressionUUID->"a3369a4e-687d-4462-a251-7e026abebba7"],
-Cell[7831, 238, 2675, 50, 506, "Output",ExpressionUUID->"64fab9cb-9187-4b4b-9a18-39a760ee77cd"]
+Cell[7831, 238, 2675, 50, 421, "Output",ExpressionUUID->"64fab9cb-9187-4b4b-9a18-39a760ee77cd"]
 }, Open  ]],
 Cell[10521, 291, 156, 3, 28, "Input",ExpressionUUID->"34dc5fa2-03a3-494c-a5d4-d050f3734749"]
 }, Open  ]]
@@ -526,10 +533,10 @@ Cell[10521, 291, 156, 3, 28, "Input",ExpressionUUID->"34dc5fa2-03a3-494c-a5d4-d0
 Cell[CellGroupData[{
 Cell[10726, 300, 235, 7, 156, "Title",ExpressionUUID->"5ad32a86-3d9b-4f1a-b0a6-fe5733ae7c21"],
 Cell[CellGroupData[{
-Cell[10986, 311, 4403, 128, 143, "Input",ExpressionUUID->"028c5933-7c8a-4183-a27b-e3cb56d93043"],
-Cell[15392, 441, 2389, 48, 391, "Output",ExpressionUUID->"0789d7c7-7b0a-4552-a0ca-7593cef0906c"]
+Cell[10986, 311, 4670, 134, 162, "Input",ExpressionUUID->"028c5933-7c8a-4183-a27b-e3cb56d93043"],
+Cell[15659, 447, 2434, 49, 426, "Output",ExpressionUUID->"de7b6153-9985-47ac-b1df-d075c7887315"]
 }, Open  ]],
-Cell[17796, 492, 154, 3, 28, "Input",ExpressionUUID->"8bb6ef0e-50f6-4ab3-9ea0-a53e7df846e8"]
+Cell[18108, 499, 154, 3, 28, "Input",ExpressionUUID->"8bb6ef0e-50f6-4ab3-9ea0-a53e7df846e8"]
 }, Open  ]]
 }
 ]
